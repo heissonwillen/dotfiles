@@ -1,0 +1,7 @@
+[push]
+	autoSetupRemote = true
+[user]
+	email = heisson70@gmail.com
+	name = heissonwillen
+[core]
+	editor = vim
