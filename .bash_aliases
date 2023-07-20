@@ -22,7 +22,7 @@ alias gs='git status'
 alias gf='git fetch'
 alias gc='git commit'
 alias gp='git pull --rebase'
-alias gcam='git commit --amend'
+alias gcam='git commit --amend --no-edit'
 
 # Misc
 alias treee='git ls-tree -r --name-only HEAD | tree --fromfile'
