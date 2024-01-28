@@ -7,9 +7,6 @@ echo "Updating APT and installing software packages."
 # sudo apt update
 sudo apt install xinput i3
 
-# Upload newly created branch with "git push"
-git config --global --add --bool push.autoSetupRemote true
-
 # Setup keyboard
 setxkbmap -layout us -variant intl
 
