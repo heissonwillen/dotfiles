@@ -1,7 +1,12 @@
-! Swap ctrl with alt
+! Swap CTRL with ALT
 clear control
 clear mod1
 keycode 37 = Alt_L Meta_L
 keycode 64 = Control_L
 add control = Control_L Control_R
 add mod1 = Alt_L Meta_L
+
+! Swap Caps Lock with ESC
+remove Lock = Caps_Lock
+keycode 9 = Caps_Lock NoSymbol Caps_Lock
+keycode 66 = Escape NoSymbol Escape
