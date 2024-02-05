@@ -18,7 +18,7 @@ alias avenv="deactivate > /dev/null 2>&1 ; source venv/bin/activate"
 # Git
 alias gs='git status'
 alias gf='git fetch'
-alias gc='git commit'
+alias gc='git commit --all --verbose'
 alias gp='git pull --rebase'
 alias gcam='git commit --amend --no-edit'
 alias gtmp='git commit -m "chore: Temporary commit"'
