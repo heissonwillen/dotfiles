@@ -1,11 +1,10 @@
 # TODO:
 # - Map function keys: https://github.com/jergusg/k380-function-keys-conf
-# - Invert trackpad directions
 # - Shortcut to change from light to dark theme
 
 echo "Updating APT and installing software packages."
 # sudo apt update
-sudo apt install xinput i3
+sudo apt install xinput i3 pip arandr
 
 # Setup keyboard
 setxkbmap -layout us -variant intl
