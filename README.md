@@ -3,7 +3,7 @@ My personal dotfiles.
 
 ## Usage
 ```
-git clone https://github.com/heissonwillen/dotfiles.git ~/dotfiles && cd ~/dotfiles && ./setup.sh
+git clone https://github.com/heissonwillen/dotfiles.git ~/dotfiles && cd ~/dotfiles && bash setup.sh
 ```
 
 ## Manual steps
