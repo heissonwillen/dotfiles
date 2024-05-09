@@ -30,7 +30,7 @@ function create_symlinks() {
 function install_packages() {
     echo "Updating APT and installing software packages."
     sudo apt update
-    sudo apt install -y xinput i3 pip arandr zsh curl wget
+    sudo apt install -y xinput i3 pip arandr zsh curl wget brightnessctl terminator
 
     echo "Installing non-APT packages"
     wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -P /tmp    
@@ -42,7 +42,7 @@ function setup_misc() {
     setxkbmap -layout us -variant intl
 
     echo "Adding user to video group. This allows sudoless 'brightnessctl' usage."
-    usermod -aG video ${USER}
+    sudo usermod -aG video ${USER}
 
     echo "Remap keys"
     xmodmap ~/.Xmodmap
