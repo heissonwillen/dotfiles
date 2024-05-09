@@ -30,7 +30,7 @@ function create_symlinks() {
 function install_packages() {
     echo "Updating APT and installing software packages."
     sudo apt update
-    sudo apt install -y xinput i3 pip arandr zsh curl wget brightnessctl terminator
+    sudo apt install -y xinput i3 pip arandr zsh curl wget brightnessctl terminator neofetch blueman alsa-utils pulseaudio
 
     echo "Installing non-APT packages"
     wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -P /tmp    

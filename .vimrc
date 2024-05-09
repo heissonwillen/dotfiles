@@ -15,5 +15,6 @@ noremap <silent> ,cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<
 
 " Activate line numbers
 set ruler
+set number
 set relativenumber
 
