@@ -43,6 +43,9 @@ function setup_misc() {
 
     echo "Adding user to video group. This allows sudoless 'brightnessctl' usage."
     usermod -aG video ${USER}
+
+    echo "Remap keys"
+    xmodmap ~/.Xmodmap
 }
 
 install_packages
