@@ -1,18 +1,46 @@
 # TODO:
 # - Map function keys: https://github.com/jergusg/k380-function-keys-conf
 # - Shortcut to change from light to dark theme
+# - Install Chrome
 
-echo "Updating APT and installing software packages."
-# sudo apt update
-sudo apt install xinput i3 pip arandr
+function create_symlinks() {
+    dotfiledir="${HOME}/dotfiles"
+    files=(
+        .config/i3
+        .config/i3status
+        .screenlayout
+        Projects/Personal/.gitconfig
+        .aliases
+        .gitconfig
+        .vimrc
+        .Xmodmap
+        .zshrc
+    )
 
-# Setup keyboard
-setxkbmap -layout us -variant intl
+    echo "Changing to the ${dotfiledir} directory"
+    cd "${dotfiledir}" || exit
 
-# Add user to video group. This allows sudoless 'brightnessctl' usage
-usermod -aG video ${USER}
+    for file in "${files[@]}"; do
+        echo "Creating symlink to $file in home directory."
+        rm -rf "${HOME}/${file}"
+        ln -sf "${dotfiledir}/${file}" "${HOME}/${file}"
+    done
+}
 
-# Setup mouse
-echo "Configuring the right mouse button as the primary button." 
-logi_mouse_id=$(xinput list | grep "Logitech USB Receiver Mouse" | awk -F'=' '{print $2}' | awk '{print $1}')
-xinput set-button-map "$logi_mouse_id" 3 2 1
+function install_packages() {
+    echo "Updating APT and installing software packages."
+    sudo apt update
+    sudo apt install xinput i3 pip arandr
+}
+
+function setup_misc() {
+    echo "Setting up keyboard layout."
+    setxkbmap -layout us -variant intl
+
+    echo "Adding user to video group. This allows sudoless 'brightnessctl' usage."
+    usermod -aG video ${USER}
+}
+
+install_packages
+setup_misc
+create_symlinks
