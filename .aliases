@@ -5,7 +5,7 @@ alias avenv="deactivate > /dev/null 2>&1 ; source venv/bin/activate"
 alias c="clear"
 
 # Git
-alias gtmp='git commit -m "chore: Temporary commit"'
+alias gtmp='git commit -m "chore(all-sites, foo): Temporary commit"'
 alias gri='git rebase -i'
 alias grih='git rebase -i HEAD~10'
 alias gc='git commit --all --verbose'
