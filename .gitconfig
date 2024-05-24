@@ -1,7 +1,14 @@
 [push]
 	autoSetupRemote = true
 [user]
-	email = heisson70@gmail.com
-	name = heissonwillen
+	email = heisson.lima@celus.io 
+	name = heisson.lima
 [core]
 	editor = vim
+
+[includeIf "gitdir:~/dotfiles"]
+  path = ~/Projects/Personal/.gitconfig
+
+[includeIf "gitdir:~/Projects/Personal/"]
+  path = ~/Projects/Personal/.gitconfig
+
