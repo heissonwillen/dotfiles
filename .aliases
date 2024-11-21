@@ -5,10 +5,14 @@ alias avenv="deactivate > /dev/null 2>&1 ; source venv/bin/activate"
 alias c="clear"
 
 # Git
-alias gtmp='git commit -m "chore(all-sites, foo): Temporary commit"'
+alias gtmp='git commit -m "chore(all-sites, foo): ANDR-0 temporary commit"'
 alias gri='git rebase -i'
 alias grih='git rebase -i HEAD~10'
 alias gc='git commit --all --verbose'
+# Get what's not merged to master
+alias glm='git log origin/master..origin/develop'
+# Get what's not merged to master with specific string on the commit message
+alias glma='git log origin/master..origin/develop --grep "ANDR-"'
 
 # Misc
 alias treee="git ls-tree -r --name-only HEAD | tree --fromfile"
