@@ -5,6 +5,7 @@
 	name = heisson.lima
 [core]
 	editor = vim
+	excludesfile = /Users/heissonlima/.gitignore
 
 [includeIf "gitdir:~/dotfiles"]
   path = ~/Projects/Personal/.gitconfig

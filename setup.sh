@@ -12,6 +12,7 @@ function create_symlinks() {
         Projects/Personal/.gitconfig
         .aliases
         .gitconfig
+        .gitignore
         .vimrc
         .Xmodmap
         .zshrc
