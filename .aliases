@@ -19,3 +19,7 @@ alias treee="git ls-tree -r --name-only HEAD | tree --fromfile"
 alias pcommit="rm -f flake-report.json mypy.txt ; pre-commit run --all-files"
 alias lint="nodemon --exec 'rm -f flake-report.json mypy.txt ruff-report.json; pre-commit run --all-files' --ignore flake-report.json --ignore mypy.txt --ignore ruff-report.json --watch . --ext '*'"
 alias kc="sudo docker compose -f $HOME/Projects/Platform/keycloak/dev/kc-local-compose/docker-compose.yml up --build --force-recreate"
+
+# Go
+# Source: https://github.com/air-verse/air/issues/135#issuecomment-761730669
+alias air='$(go env GOPATH)/bin/air'
