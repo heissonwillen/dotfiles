@@ -13,3 +13,5 @@
 [includeIf "gitdir:~/Projects/Personal/"]
   path = ~/Projects/Personal/.gitconfig
 
+[http]
+	postBuffer = 157286400
