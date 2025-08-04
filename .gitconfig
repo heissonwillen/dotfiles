@@ -1,17 +1,10 @@
 [push]
 	autoSetupRemote = true
 [user]
-	email = heisson.lima@celus.io 
-	name = heisson.lima
+	email = heisson70@gmail.com
+	name = heissonwillen
 [core]
 	editor = vim
-	excludesfile = /Users/heissonlima/.gitignore
-
-[includeIf "gitdir:~/dotfiles"]
-  path = ~/Projects/Personal/.gitconfig
-
-[includeIf "gitdir:~/Projects/Personal/"]
-  path = ~/Projects/Personal/.gitconfig
-
+	excludesfile = /Users/heissonwillen/.gitignore
 [http]
 	postBuffer = 157286400
