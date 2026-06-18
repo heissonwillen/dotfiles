@@ -7,14 +7,14 @@ alias c="clear"
 # Git
 alias gtmp='git commit -m "chore: temporary commit" --no-verify'
 alias gri='git rebase -i'
-alias grih='git rebase -i HEAD~10'
+grih() { git rebase -i "HEAD~${1:-10}"; }
 alias gc='git commit --all --verbose'
 # Get what's not merged to master
 alias glm='git log origin/master..origin/develop'
 
 # Misc
 alias treee="git ls-tree -r --name-only HEAD | tree --fromfile"
-alias pcommit="rm -f flake-report.json mypy.txt ; pre-commit run --all-files"
+alias pcommit="rm -f flake-report.json mypy.txt ruff-report.json ; pre-commit run --all-files"
 alias lint="nodemon --exec 'rm -f flake-report.json mypy.txt ruff-report.json; pre-commit run --all-files' --ignore flake-report.json --ignore mypy.txt --ignore ruff-report.json --watch . --ext '*'"
 
 # Go
