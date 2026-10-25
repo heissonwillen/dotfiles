@@ -381,9 +381,12 @@ require('lazy').setup({
       local statusline = require 'mini.statusline'
       statusline.setup { use_icons = vim.g.have_nerd_font }
       local section_git = statusline.section_git
-      statusline.section_git = function() return section_git { trunc_width = 0 } end
+      statusline.section_git = function() return '' end
       ---@diagnostic disable-next-line: duplicate-set-field
-      statusline.section_location = function() return '%2l:%-2v' end
+      statusline.section_location = function()
+        local branch = section_git { trunc_width = 0 }
+        return (branch == '' and '' or branch .. '  ') .. '%2l:%-2v'
+      end
     end,
   },
 
