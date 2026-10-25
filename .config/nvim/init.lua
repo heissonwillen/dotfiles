@@ -8,6 +8,7 @@ vim.o.number = true
 vim.o.relativenumber = true
 vim.o.mouse = 'a'
 vim.o.showmode = false
+vim.o.laststatus = 3
 
 -- Schedule after UiEnter because it can increase startup-time.
 vim.schedule(function() vim.o.clipboard = 'unnamedplus' end)
@@ -229,7 +230,7 @@ require('lazy').setup({
           end
 
           if client and client:supports_method('textDocument/inlayHint', event.buf) then
-            map('<leader>th', function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf }) end, '[T]oggle Inlay [H]ints')
+            map('<leader>th', function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf }, { bufnr = event.buf }) end, '[T]oggle Inlay [H]ints')
           end
         end,
       })
@@ -237,15 +238,10 @@ require('lazy').setup({
       ---@type table<string, vim.lsp.Config>
       local servers = {
         pyright = {
-          settings = {
-            python = {
-              pythonPath = (function()
-                local venv = vim.fn.finddir('.venv', vim.fn.getcwd() .. ';')
-                if venv ~= '' then return venv .. '/bin/python' end
-                return vim.fn.exepath 'python3'
-              end)(),
-            },
-          },
+          before_init = function(_, config)
+            local python = config.root_dir and (config.root_dir .. '/.venv/bin/python')
+            if python and vim.fn.executable(python) == 1 then config.settings.python.pythonPath = python end
+          end,
         },
 
         stylua = {},
@@ -381,8 +377,11 @@ require('lazy').setup({
     config = function()
       require('mini.ai').setup { n_lines = 500 }
       require('mini.surround').setup()
+      require('mini.git').setup()
       local statusline = require 'mini.statusline'
       statusline.setup { use_icons = vim.g.have_nerd_font }
+      local section_git = statusline.section_git
+      statusline.section_git = function() return section_git { trunc_width = 0 } end
       ---@diagnostic disable-next-line: duplicate-set-field
       statusline.section_location = function() return '%2l:%-2v' end
     end,
